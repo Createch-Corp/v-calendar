@@ -121,6 +121,7 @@ export default {
         class: [
           'vc-day',
           ...this.day.classes,
+          { 'vc-single-week': this.singleWeek },
           { 'vc-day-box-center-center': !this.$slots['day-content'] },
           { 'is-not-in-month': !this.inMonth },
         ],
@@ -131,6 +132,7 @@ export default {
   inject: ['sharedState'],
   props: {
     day: { type: Object, required: true },
+    singleWeek: Boolean,
   },
   data() {
     return {

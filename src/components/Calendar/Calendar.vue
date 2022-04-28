@@ -66,6 +66,7 @@ export default {
           column,
           columnFromEnd,
           titlePosition: this.titlePosition,
+          showWeek: this.showWeek,
           canMove: this.canMove,
           'onUpdate:page': e => this.move(e, { position: i + 1 }),
           onDayfocusin: e => {
@@ -288,6 +289,7 @@ export default {
     attributes: [Object, Array],
     trimWeeks: Boolean,
     disablePageSwipe: Boolean,
+    showWeek: Number,
   },
   data() {
     return {

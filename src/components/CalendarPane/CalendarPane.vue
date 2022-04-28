@@ -87,6 +87,10 @@ export default {
     const dayCells = [];
     const { daysInWeek } = this.locale;
     this.page.days.forEach((day, i) => {
+      // skip unwanted weeks when in single week mode
+      if (this.showWeek && this.showWeek != day.isoWeeknumber) {
+        return;
+      }
       const mod = i % daysInWeek;
       // Inset weeknumber cell on left side if needed
       if (
@@ -101,6 +105,7 @@ export default {
           {
             ...this.$attrs,
             day,
+            singleWeek: !!this.showWeek,
           },
           this.$slots,
         ),
@@ -152,6 +157,7 @@ export default {
     },
     showWeeknumbers: [Boolean, String],
     showIsoWeeknumbers: [Boolean, String],
+    showWeek: Number,
   },
   computed: {
     weeknumberKey() {
