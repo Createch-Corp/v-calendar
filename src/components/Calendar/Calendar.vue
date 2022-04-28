@@ -249,7 +249,11 @@ export default {
               {
                 class: [`vc-arrows-container title-${this.titlePosition}`],
               },
-              [getArrowButton(true), getArrowButton(false)],
+              [
+                this.$slots.buttons && this.$slots.buttons(),
+                getArrowButton(true),
+                getArrowButton(false),
+              ],
             ),
             this.$slots.footer && this.$slots.footer(),
           ],
